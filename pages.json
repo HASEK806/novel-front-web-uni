@@ -2,14 +2,14 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "Novel",
-		"navigationBarBackgroundColor": "#4aa358",
+		"navigationBarBackgroundColor": "#a56cc1",
 		"backgroundColor": "#F8F8F8"
 	},
 	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "Novel"
+				"navigationBarTitleText": "小说书城"
 			}
 		},
 		{
@@ -28,7 +28,7 @@
 			"path" : "pages/test/test",
 			"style" : 
 			{
-				"navigationBarTitleText" : "test"
+				"navigationBarTitleText" : "测试"
 			}
 		},
 		{
@@ -37,11 +37,18 @@
 			{
 				"navigationBarTitleText" : "发现"
 			}
+		},
+		{
+			"path" : "pages/book/book",
+			"style" : 
+			{
+				"navigationBarTitleText" : "书架"
+			}
 		}
 	],
 	"tabBar": {
 		"color": "#cdcdcd",
-		"selectedColor": "#8f348a",
+		"selectedColor": "#a6acec",
 		"list": [
 			{
 				"text": "书城",
@@ -52,14 +59,20 @@
 			{
 				"text": "测试",
 				"pagePath": "pages/test/test",
-				"iconPath": "static/my_1.png",
-				"selectedIconPath": "static/my_2.png"
+				"iconPath": "static/test_1.png",
+				"selectedIconPath": "static/test_2.png"
 			},
 			{
 				"text": "发现",
 				"pagePath": "pages/search/search",
-				"iconPath": "static/my_1.png",
-				"selectedIconPath": "static/my_2.png"
+				"iconPath": "static/seach_1.png",
+				"selectedIconPath": "static/seach_2.png"
+			},
+			{
+				"text": "书架",
+				"pagePath": "pages/book/book",
+				"iconPath": "static/book_1.png",
+				"selectedIconPath": "static/book_2.png"
 			},
 			{
 				"text": "我的",

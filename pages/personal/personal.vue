@@ -5,7 +5,7 @@
 			<view @click="handleLogin">点击登录</view>
 		</view>
 		<view class="content">
-			<view class="item">运动数据</view>
+			<view class="item">账号安全</view>
 			<view class="item">设置</view>
 			<view class="item">关于我们</view>
 		</view>
