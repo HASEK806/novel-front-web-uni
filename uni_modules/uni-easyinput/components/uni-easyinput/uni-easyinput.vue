@@ -227,7 +227,7 @@
 			},
 			primaryColor: {
 				type: String,
-				default: '#2979ff'
+				default: '#a6acec'
 			},
 			styles: {
 				type: Object,

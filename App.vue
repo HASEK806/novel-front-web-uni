@@ -28,4 +28,7 @@
 		color: #333;
 		padding: 10px;
 	}
+	.container {
+		padding: 20px;
+	}
 </style>
