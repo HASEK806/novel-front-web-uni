@@ -1,6 +1,7 @@
 <template>
   <view class="container">
     <!-- 最热图书展示区，支持左右滑动 -->
+	<view class="book-view">最热展示 ></view>
     <view class="hot-books-container">
       <view v-for="(book, index) in hotBooks" :key="index" class="hot-book-item">
         <image :src="book.image" class="hot-book-image" />
@@ -25,6 +26,23 @@
         </view>
       </view>
     </view>
+	
+	<!-- 图书展示区，支持左右滑动 -->
+	<view class="book-view">精品展示 ></view>
+	<view class="hot-books-container">
+	  <view v-for="(book, index) in hotBooks" :key="index" class="hot-book-item">
+	    <image :src="book.image" class="hot-book-image" />
+	    <view class="hot-book-title">{{ book.title }}</view>
+	  </view>
+	</view>
+	
+	<!-- 图书标题展示区 -->
+	<view class="book-view">热点推荐 ></view>
+	<view class="text-books-container">
+	  <view v-for="(book, index) in hotBooks" :key="index" class="text-book-item">
+	    <view class="text-book-title">{{ book.title }}</view>
+	  </view>
+	</view>
   </view>
 </template>
 
@@ -109,6 +127,14 @@ export default defineComponent({
   padding: 10px;
 }
 
+.book-view {
+	color: #d72323;
+	font-size: 16px;
+	height: 20px;
+	line-height: 20px;
+	padding: 5px 0;
+}
+
 .hot-books-container {
   overflow-x: auto; /* 使容器可以横向滚动 */
   white-space: nowrap; /* 确保图片不换行 */
@@ -156,7 +182,7 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .book-item {
@@ -180,7 +206,7 @@ export default defineComponent({
 
 .book-rank {
   font-size: 18px;
-  color: #ff7f50;
+  color: #7e6bc4;
   font-weight: bold;
 }
 
@@ -188,5 +214,17 @@ export default defineComponent({
   font-size: 14px;
   color: #333;
   margin-top: 4px;
+}
+
+.text-books-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.text-book-item {
+	width: 48%;
+	font-size: 14px;
 }
 </style>
