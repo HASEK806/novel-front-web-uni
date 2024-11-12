@@ -3,7 +3,7 @@
     <!-- 最热图书展示区，支持左右滑动 -->
 	<view class="book-view">最热展示 ></view>
     <view class="hot-books-container">
-      <view v-for="(book, index) in hotBooks" :key="index" class="hot-book-item">
+      <view v-for="(book, index) in hotBooks" :key="index"  @click="goToBookDetail(book.id)" class="hot-book-item">
         <image :src="book.image" class="hot-book-image" />
         <view class="hot-book-title">{{ book.title }}</view>
       </view>
@@ -18,7 +18,7 @@
 
     <!-- 榜单图书列表 -->
     <view class="books-list">
-      <view v-for="(book, index) in displayedBooks" :key="index" class="book-item">
+      <view v-for="(book, index) in displayedBooks" :key="index" @click="goToBookDetail(book.id)" class="book-item">
         <image :src="book.image" class="book-thumbnail" />
         <view class="book-info">
           <view class="book-rank">#{{ index + 1 }}</view>
@@ -30,7 +30,7 @@
 	<!-- 图书展示区，支持左右滑动 -->
 	<view class="book-view">精品展示 ></view>
 	<view class="hot-books-container">
-	  <view v-for="(book, index) in hotBooks" :key="index" class="hot-book-item">
+	  <view v-for="(book, index) in hotBooks" :key="index" @click="goToBookDetail(book.id)" class="hot-book-item">
 	    <image :src="book.image" class="hot-book-image" />
 	    <view class="hot-book-title">{{ book.title }}</view>
 	  </view>
@@ -39,7 +39,7 @@
 	<!-- 图书标题展示区 -->
 	<view class="book-view">热点推荐 ></view>
 	<view class="text-books-container">
-	  <view v-for="(book, index) in hotBooks" :key="index" class="text-book-item">
+	  <view v-for="(book, index) in hotBooks" :key="index" @click="goToBookDetail(book.id)" class="text-book-item">
 	    <view class="text-book-title">{{ book.title }}</view>
 	  </view>
 	</view>
@@ -53,12 +53,12 @@ export default defineComponent({
   setup() {
     // 最热图书的 mock 数据
     const hotBooks = ref([
-      { title: '最热图书1', image: 'https://via.placeholder.com/100x150' },
-      { title: '最热图书2', image: 'https://via.placeholder.com/100x150' },
-      { title: '最热图书3', image: 'https://via.placeholder.com/100x150' },
-      { title: '最热图书4', image: 'https://via.placeholder.com/100x150' },
-      { title: '最热图书5', image: 'https://via.placeholder.com/100x150' },
-      { title: '最热图书6', image: 'https://via.placeholder.com/100x150' },
+      { id: '001', title: '最热图书1', image: '/static/cover1.png' },
+      { id: '002', title: '最热图书2', image: '/static/cover2.jpg' },
+      { id: '003', title: '最热图书3', image: '/static/cover3.jpg' },
+      { id: '004', title: '最热图书4', image: '/static/cover4.jpg' },
+      { id: '005', title: '最热图书5', image: '/static/cover2.jpg' },
+      { id: '006', title: '最热图书6', image: '/static/cover1.png' },
     ]);
 
     // Tab栏及不同类型的排行榜数据
@@ -67,56 +67,63 @@ export default defineComponent({
 
     const booksData = {
       推荐榜: [
-        { title: '推荐书1', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书2', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书3', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书4', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书5', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书6', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书7', image: 'https://via.placeholder.com/100x150' },
-        { title: '推荐书8', image: 'https://via.placeholder.com/100x150' },
+        { id: '001', title: '推荐书1', image: '/static/cover1.png' },
+        { id: '001', title: '推荐书2', image: '/static/cover2.jpg' },
+        { id: '001', title: '推荐书3', image: '/static/cover3.jpg' },
+        { id: '001', title: '推荐书4', image: '/static/cover4.jpg' },
+        { id: '001', title: '推荐书5', image: '/static/cover1.png' },
+        { id: '001', title: '推荐书6', image: '/static/cover2.jpg' },
+        { id: '001', title: '推荐书7', image: '/static/cover3.jpg' },
+        { id: '001', title: '推荐书8', image: '/static/cover4.jpg' },
       ],
       完本榜: [
-        { title: '完本书1', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书2', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书3', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书4', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书5', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书6', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书7', image: 'https://via.placeholder.com/100x150' },
-        { title: '完本书8', image: 'https://via.placeholder.com/100x150' },
+        { id: '001', title: '完本书1', image: '/static/cover1.png' },
+        { id: '001', title: '完本书2', image: '/static/cover1.png' },
+        { id: '001', title: '完本书3', image: '/static/cover1.png' },
+        { id: '001', title: '完本书4', image: '/static/cover1.png' },
+        { id: '001', title: '完本书5', image: '/static/cover1.png' },
+        { id: '001', title: '完本书6', image: '/static/cover1.png' },
+        { id: '001', title: '完本书7', image: '/static/cover1.png' },
+        { id: '001', title: '完本书8', image: '/static/cover1.png' },
       ],
       // 可添加其他类型数据
 	  口碑榜: [
-	    { title: '口碑书1', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书2', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书3', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书4', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书5', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书6', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书7', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书8', image: 'https://via.placeholder.com/100x150' },
+	    { id: '001', title: '口碑书1', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书2', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书3', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书4', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书5', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书6', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书7', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书8', image: '/static/cover1.png' },
 	  ],
 	  巅峰榜: [
-	    { title: '巅峰书1', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书2', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书3', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书4', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书5', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书6', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书7', image: 'https://via.placeholder.com/100x150' },
-	    { title: '完本书8', image: 'https://via.placeholder.com/100x150' },
+	    { id: '001', title: '巅峰书1', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书2', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书3', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书4', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书5', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书6', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书7', image: '/static/cover1.png' },
+	    { id: '001', title: '完本书8', image: '/static/cover1.png' },
 	  ],
     };
 
     // 当前选中 Tab 的书籍数据
     const displayedBooks = computed(() => booksData[tabs.value[currentTab.value]]);
+	
+	function goToBookDetail(bookId: string) {
+      uni.navigateTo({
+        url: `/pages/BookDetail/BookDetail?id=${bookId}`
+      });
+    }
 
     return {
       hotBooks,
       tabs,
       currentTab,
       displayedBooks,
+	  goToBookDetail,
     };
   },
 });

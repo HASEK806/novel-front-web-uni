@@ -87,18 +87,18 @@ export default defineComponent({
     const books = ref<any[]>([]);
 
     const mockData = [
-      { title: '书籍A', author: '作者A', image: 'https://via.placeholder.com/150', favorite: true },
-      { title: '书籍B', author: '作者B', image: 'https://via.placeholder.com/150', favorite: false },
-      { title: '书籍C', author: '作者C', image: 'https://via.placeholder.com/150', favorite: true },
-	  { title: '书籍A', author: '作者A', image: 'https://via.placeholder.com/150', favorite: true },
-	  { title: '书籍B', author: '作者B', image: 'https://via.placeholder.com/150', favorite: false },
-	  { title: '书籍C', author: '作者C', image: 'https://via.placeholder.com/150', favorite: true },
-	  { title: '书籍A', author: '作者A', image: 'https://via.placeholder.com/150', favorite: true },
-	  { title: '书籍B', author: '作者B', image: 'https://via.placeholder.com/150', favorite: false },
-	  { title: '书籍C', author: '作者C', image: 'https://via.placeholder.com/150', favorite: true },
-	  { title: '书籍A', author: '作者A', image: 'https://via.placeholder.com/150', favorite: true },
-	  { title: '书籍B', author: '作者B', image: 'https://via.placeholder.com/150', favorite: false },
-	  { title: '书籍C', author: '作者C', image: 'https://via.placeholder.com/150', favorite: true },
+      { title: '书籍A', author: '作者A', image: '/static/cover1.png', favorite: true },
+      { title: '书籍B', author: '作者B', image: '/static/cover3.jpg', favorite: false },
+      { title: '书籍C', author: '作者C', image: '/static/cover2.jpg', favorite: true },
+	  { title: '书籍A', author: '作者A', image: '/static/cover4.jpg', favorite: true },
+	  { title: '书籍B', author: '作者B', image: '/static/cover1.png', favorite: false },
+	  { title: '书籍C', author: '作者C', image: '/static/cover4.jpg', favorite: true },
+	  { title: '书籍A', author: '作者A', image: '/static/cover3.jpg', favorite: true },
+	  { title: '书籍B', author: '作者B', image: '/static/cover2.jpg', favorite: false },
+	  { title: '书籍C', author: '作者C', image: '/static/cover1.png', favorite: true },
+	  { title: '书籍A', author: '作者A', image: '/static/cover3.jpg', favorite: true },
+	  { title: '书籍B', author: '作者B', image: '/static/cover4.jpg', favorite: false },
+	  { title: '书籍C', author: '作者C', image: '/static/cover1.png', favorite: true },
     ];
 	
 	// 切换收藏状态

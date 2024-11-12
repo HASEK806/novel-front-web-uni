@@ -44,6 +44,13 @@
 			{
 				"navigationBarTitleText" : "书架"
 			}
+		},
+		{
+			"path" : "pages/BookDetail/BookDetail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "详情"
+			}
 		}
 	],
 	"tabBar": {
